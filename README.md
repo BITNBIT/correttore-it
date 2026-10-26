@@ -1,3 +1,5 @@
+![copertina](.github/copertina.png)
+
 # Correttore IT 1.3 — correttore e assistente di scrittura con AI locale (portatile)
 
 Corregge l'italiano, completa le frasi mentre scrivi e scrive le risposte ai messaggi, **in qualsiasi
