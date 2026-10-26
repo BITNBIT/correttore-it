@@ -1,0 +1,8 @@
+models/
+llama/
+motori/
+tmp/
+config.json
+config.json.tmp
+CorrettoreIT.exe
+*.part

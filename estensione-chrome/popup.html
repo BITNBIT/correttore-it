@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Correttore IT</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="icons/icon32.png" width="24" height="24" alt="">
+    <div class="title">
+      <strong>Correttore IT</strong>
+      <span id="model" class="sub">AI locale</span>
+    </div>
+  </header>
+
+  <div id="status" class="status"><span class="led"></span><span id="statusText">Controllo del motore…</span></div>
+
+  <label class="row">
+    <span>Correttore attivo in Chrome</span>
+    <input type="checkbox" id="enabled" class="switch">
+  </label>
+
+  <label class="row">
+    <span>Suggerimenti mentre scrivi (<kbd>Tab</kbd>)</span>
+    <input type="checkbox" id="suggest" class="switch">
+  </label>
+
+  <div class="block">
+    <label for="lingua" class="lbl">Lingua di scrittura (correzione e risposte)</label>
+    <select id="lingua" disabled></select>
+    <label for="traduciIn" class="lbl">Traduci in</label>
+    <select id="traduciIn" disabled></select>
+  </div>
+
+  <label class="row" id="siteRow">
+    <span>Pulsante su <b id="host">questo sito</b></span>
+    <input type="checkbox" id="site" class="switch">
+  </label>
+
+  <div class="block">
+    <label for="mode" class="lbl">Dove mostrare il pulsante</label>
+    <select id="mode">
+      <option value="all">Su tutti i siti (tranne quelli esclusi)</option>
+      <option value="allowlist">Solo sui siti che scelgo io</option>
+    </select>
+    <div class="lbl small" id="listTitle">Siti esclusi</div>
+    <ul id="list"></ul>
+  </div>
+
+  <div class="tips">
+    <div>• <b>Chrome</b>: clicca il pulsante <span class="chip">✓</span> nel campo, oppure seleziona il testo → tasto destro → <i>Correggi in italiano</i>.</div>
+    <div>• <b>Risposta</b>: il pulsante <span class="chip">💬</span> scrive la risposta al messaggio (o completa la tua bozza); <kbd>Tab</kbd> la inserisce.</div>
+    <div>• <b>Mentre scrivi</b>: il seguito della frase compare in grigio, <kbd>Tab</kbd> lo accetta, <kbd>Esc</kbd> lo nasconde.</div>
+    <div>• <b>Qualsiasi programma Windows</b>: seleziona il testo e premi <kbd>Ctrl</kbd>+<kbd>Maiusc</kbd>+<kbd>Spazio</kbd>.</div>
+  </div>
+
+  <footer>100% locale · nessun dato lascia il tuo PC</footer>
+  <script src="popup.js"></script>
+</body>
+</html>

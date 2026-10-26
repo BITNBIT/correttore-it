@@ -1,0 +1,81 @@
+CORRETTORE IT 1.3 - correttore e assistente di scrittura con AI locale - PORTATILE
+===============================================================================
+
+Tutto gira sul tuo PC: nessun account, nessun abbonamento, nessun testo inviato su Internet.
+Programma PORTATILE: vive tutto in questa cartella (programma, motore, modelli, impostazioni).
+Non si installa, non scrive nel registro di Windows. Si può spostare o copiare su un altro PC.
+
+AVVIO
+- Su questo PC: doppio clic su  CorrettoreIT.exe
+- Su un PC nuovo, la prima volta: doppio clic su  Prepara.bat
+  (se Windows mostra "PC protetto": "Ulteriori informazioni" -> "Esegui comunque").
+  Prepara riconosce il PC e sceglie da solo il motore:
+      NVIDIA (RTX/GTX)                      -> scheda video con CUDA
+      AMD Radeon RX/Pro, Intel Arc dedicate -> scheda video con Vulkan
+      grafica integrata o nessuna scheda    -> processore (CPU)
+  I motori per scheda video sono già nella cartella "motori": non serve internet.
+  Se i modelli mancano (versione leggera scaricata da GitHub) li scarica da HuggingFace.
+- Avvio automatico con Windows: tasto destro sull'icona vicino all'orologio -> "Avvia con Windows".
+  È l'unica cosa che scrive fuori dalla cartella, e solo se la attivi tu.
+
+MODELLI AI (cartella "models")
+- Qwen3.5 4B MTP (2,8 GB): correzione, risposte, riscritture, traduzioni. Molto preciso in italiano.
+- Qwen3.5 2B Base (1,3 GB): solo il testo grigio mentre scrivi. È un modello "Base": invece di fare
+  l'assistente continua il testo come una persona che scrive, quindi propone parole pertinenti.
+- PC con meno di 12 GB di RAM e senza scheda video: Qwen3.5 2B per tutto (1,3 GB).
+
+TESTO GRIGIO (Chrome, mentre scrivi) - novità della 1.3
+- Il seguito della frase compare in grigio accanto al cursore. Tab lo accetta, Esc lo nasconde.
+- Compare SOLO quando il modello è sicuro: meglio nessun suggerimento che uno a caso.
+- Usa il testo della pagina solo se è un vero messaggio (una mail, una chat a cui rispondi):
+  menu, pulsanti ed etichette vengono ignorati.
+- Non inventa orari, prezzi o numeri che non hai scritto tu o che non sono nel messaggio.
+
+COME CORREGGE
+1. Il dizionario italiano di Windows trova le parole scritte male (es. spazzio -> spazio).
+2. L'AI locale corregge la frase (accenti, apostrofi, e/è, a/ha, concordanze).
+3. Se l'AI lascia una parola sbagliata, la corregge il dizionario. I nomi propri restano intatti.
+Il dizionario italiano è già in Windows se usi Windows in italiano; altrimenti:
+Impostazioni > Ora e lingua > Lingua > Aggiungi lingua > Italiano.
+
+USO
+- Qualsiasi programma (Word, Blocco note, WhatsApp, email...): seleziona il testo e premi
+  Ctrl+Maiusc+Spazio -> corretto sul posto (Ctrl+Z annulla).
+  Oppure: copia il testo e clicca l'icona vicino all'orologio -> il testo corretto torna negli appunti.
+- PULSANTE ROTONDO sempre visibile (trascinalo dove vuoi): Correggi, Completa la frase,
+  Scrivi la risposta, Più formale, Più semplice e breve, Traduci. Invio inserisce, Esc annulla.
+  MINI PULSANTE: compare per qualche secondo accanto al testo selezionato col mouse.
+- Chrome: pulsante blu (correzione), pulsante viola (scrive la risposta al messaggio della pagina,
+  seguendo la tua bozza se l'hai iniziata), testo grigio con Tab, tasto destro -> "Correttore IT".
+- Icona vicino all'orologio (tasto destro): attivo/disattivo, lingue, Avvia con Windows,
+  Collega a Google Chrome, Crea copia portatile (zip), Elimina il programma da questo PC.
+
+COLLEGARE CHROME O EDGE (una volta sola)
+1. Apri chrome://extensions e attiva "Modalità sviluppatore" (in alto a destra).
+2. "Carica estensione non pacchettizzata" -> scegli la cartella "estensione-chrome" qui dentro.
+   Se sposti la cartella del programma, ricarica l'estensione dal nuovo percorso.
+
+PORTARLO SU UN ALTRO PC
+- Icona -> "Crea copia portatile (zip)...", oppure copia semplicemente questa cartella.
+- Sull'altro PC: estrai, avvia Prepara.bat la prima volta, poi CorrettoreIT.exe.
+
+LEGGEREZZA E TEMPERATURE
+- Il motore lavora a priorità bassa e solo quando serve; il PC resta fluido.
+- Nessun file di log, nessuna cache che cresce su disco.
+- Disattivato dall'icona = motore spento, 0 RAM usata.
+- Testi lunghi: ogni 45 secondi di lavoro continuo fa una pausa di 4 secondi.
+- NVIDIA: se la scheda arriva a 80°C si mette in pausa; se resta calda continua sul processore.
+
+IMPOSTAZIONI AVANZATE  (config.json in questa cartella, poi riavvia il programma)
+  scorciatoia        es. "Ctrl+Shift+Space", "Ctrl+Shift+F12" (senza Alt)
+  spegniDopoSecondi  secondi di inattività prima di liberare la RAM (0 = mai)
+  gpuLayers          99 = tutto sulla scheda video, 0 = solo processore
+  tempMaxGpu         temperatura massima GPU NVIDIA in °C (default 80)
+  pausaDopoSecondi   secondi di lavoro continuo prima di una pausa (default 45, 0 = mai)
+  threads            0 = automatico
+
+ELIMINARE
+  Icona -> "Elimina il programma da questo PC", oppure Elimina.bat, oppure chiudi il programma e
+  cancella la cartella. Poi rimuovi l'estensione da chrome://extensions.
+
+Licenze: llama.cpp (MIT), modelli Qwen3.5 (Apache 2.0).
